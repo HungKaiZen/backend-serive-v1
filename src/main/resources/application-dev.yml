@@ -1,0 +1,40 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  devtools:
+    add-properties: true
+
+  datasource:
+    url: jdbc:mysql://root:hTtwDJZYKGimcGssqwsKKePeMSNjDWiA@yamanote.proxy.rlwy.net:45715/railway
+    username: root
+    password: hTtwDJZYKGimcGssqwsKKePeMSNjDWiA
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Có thể đổi sang create-drop, validate, none tùy nhu cầu
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+# application-dev.yml
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    api-docs: backend-service
+    server: http://localhost:${server.port}
+    title: Backend service
+    version: 1.0.0
+
+jwt:
+  secretKey: a0ca4f65707d2402263b82ad67b79453d43c15e359247d687c6d872997c340a3
+  refreshKey: 6ae61dfd37151335a329c1d956021070ccc602239c6bc6dc20a8df3fe209f7fe
+  expiryHour: 24
+  expiryDate: 14
